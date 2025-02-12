@@ -1,7 +1,7 @@
 local Player = game:GetService("Players").LocalPlayer
- 
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Discord : Drized |", "BloodTheme")
+local Window = Library.CreateLib("Luna's GUI | I SUPPORT LGBTQIA+ |", "BloodTheme")
 
 local ATab = Window:NewTab("Autofarm")
 local ASection = ATab:NewSection("Autofarm")
@@ -117,6 +117,7 @@ local BSection = BTab:NewSection("Fruits/Trees/Pickups")
 
 local Mats = true
 local MaterialGivers = game:GetService("Workspace"):FindFirstChild("MaterialGivers"):GetDescendants()
+
 BSection:NewButton("Teleport To A Deathbush/SweetLoveBush", "Teleports you to a Deathbush if it exists", function()
 local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
 local WorkspaceD = workspace:GetDescendants()
@@ -130,27 +131,6 @@ end)
 local CTab = Window:NewTab("Teleport")
 local CSection = CTab:NewSection("Teleport")
 
-CSection:NewDropdown("Teleport To Chosen Relic NPC", "Teleports you to the chosen Relic NPC", NPCs, function(CurrentOption)
-local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-    if CurrentOption == "Bottle of ??? (Hunter)" then HRP.CFrame = CFrame.new(-1040.1, 195.214, -4722.89)
-    elseif CurrentOption == "Blind Grillby (Burning Head)" then HRP.CFrame = CFrame.new(156.598, 162.562, -2334.68)
-    elseif CurrentOption == "Cursed Altar (Cursed)" then HRP.CFrame = CFrame.new(-201.773, -98.5357, 2893.72)
-    elseif CurrentOption == "Gabriel (Ocean Glider)" then HRP.CFrame = CFrame.new(1721.16, 4.14446, -5437.34)
-    elseif CurrentOption == "Green Light Green Light (Portal)" then HRP.CFrame = CFrame.new(-529.14,-92.2,2063.35)
-    elseif CurrentOption == "Gears (Time Grinders)" then HRP.CFrame = CFrame.new(-1848,203.5,-3941.5)
-    elseif CurrentOption == "Mixed Letter (Ghoul)" then HRP.CFrame = CFrame.new(-1092.88, -101, 2155.55)
-    elseif CurrentOption == "Holy Cross (Holy)" then HRP.CFrame = CFrame.new(-1275, 493, 67)
-    elseif CurrentOption == "Bottle (Gravity Boots)" then HRP.CFrame = CFrame.new(5319.36, 13.2782, -8510.45)
-    elseif CurrentOption == "Ancient Paw (Pull)" then HRP.CFrame = CFrame.new(-904, 70, -2592.5)
-    elseif CurrentOption == "Noob (Torch)" then HRP.CFrame = CFrame.new(-124.406, 43.0267, -415.472)
-    elseif CurrentOption == "Broski (Bounty Hunter)" then HRP.CFrame = CFrame.new(569.595, 194.855, -2082.55)
-    elseif CurrentOption == "Jeff (Berserk)" then HRP.CFrame = CFrame.new(311.894, 66.9847, -1380.45)
-    elseif CurrentOption == "Gem (Crystalized)" then HRP.CFrame = CFrame.new(681.1, 34.6, -1334.6)
-    elseif CurrentOption == "Avatar of Radismus (Blood Wipe)" then HRP.CFrame = CFrame.new(5230.36, 384.857, 1645.1)
-    elseif CurrentOption == "Smile (Hyper)" then HRP.CFrame = CFrame.new(-1201, -123, 2573)
-    end
-end)
-
 CSection:NewButton("Teleport To Blackmarket", "Teleports the player to blackmarket", function()
     local BlackMarket = workspace:FindFirstChild("Stalls"):FindFirstChild("Black Market"):GetDescendants()
 for i,v in pairs(BlackMarket) do
@@ -161,25 +141,6 @@ end
 end
 end)
 
-CSection:NewButton("Teleport To Vanessa", "Teleports the player to Vanessa(bluemoon fairy)", function()
-local fairy = workspace:FindFirstChild("Vanessa")
-if fairy ~= nil then
-local LocalPlayer = game:GetService("Players").LocalPlayer
-local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-local HRP = Character:FindFirstChild("HumanoidRootPart")
-HRP.CFrame = fairy.HumanoidRootPart.CFrame
-end
-end)
-
-CSection:NewButton("Teleport To Harvestia", "Teleports the player to Harvestia", function()
-local fairy = workspace:FindFirstChild("Harvestia")
-if fairy ~= nil then
-local LocalPlayer = game:GetService("Players").LocalPlayer
-local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-local HRP = Character:FindFirstChild("HumanoidRootPart")
-HRP.CFrame = fairy.HumanoidRootPart.CFrame
-end
-end)
 
 local DTab = Window:NewTab("Other")
 local DSection = DTab:NewSection("Other")
