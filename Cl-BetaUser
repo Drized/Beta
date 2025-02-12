@@ -1,7 +1,7 @@
 local Player = game:GetService("Players").LocalPlayer
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Luna's GUI | I SUPPORT LGBTQIA+ |", "BloodTheme")
+local Window = Library.CreateLib("Discord : Drized | Need more option?", "BloodTheme")
 
 local ATab = Window:NewTab("Autofarm")
 local ASection = ATab:NewSection("Autofarm")
@@ -81,6 +81,29 @@ task.spawn(function()
 end)
 end)
 
+ASection:NewToggle("Auto Orb Bypass (Laggie)", "Bypass you to orbs automatically", function(State)
+    Tp = State
+task.spawn(function()
+    while Tp and wait(0.025) do
+	local MyFol
+        local CombatFolder = workspace:FindFirstChild("CombatFolder")
+        if CombatFolder ~= nil and CombatFolder:FindFirstChild(Player.Name) then
+	    local Player = game:GetService("Players").LocalPlayer	
+            local Character = Player.Character or Player.CharacterAdded:Wait()
+            local HRP = Character:FindFirstChild("HumanoidRootPart")
+            MyFol = CombatFolder:FindFirstChild(Player.Name):GetDescendants()
+	    if MyFol then
+            for i,v in pairs(MyFol) do
+                if v:IsA("BasePart") and v.Name == "HitBox" or v.Name == "Base" then
+                    firetouchinterest(HRP,v,0)
+                end
+            end
+	end
+        end
+    end
+end)
+end)
+
 local Acts = true
 
 ASection:NewToggle("Spam All Actives", "Spams all Actives", function(State)
@@ -132,13 +155,13 @@ local CTab = Window:NewTab("Teleport")
 local CSection = CTab:NewSection("Teleport")
 
 CSection:NewButton("Teleport To Blackmarket", "Teleports the player to blackmarket", function()
-    local BlackMarket = workspace:FindFirstChild("Stalls"):FindFirstChild("Black Market"):GetDescendants()
-for i,v in pairs(BlackMarket) do
-if v.Name == "Grani" and v.Parent.Parent.Name == "Grani" then
-	local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-HRP.CFrame = v.CFrame
-end
-end
+local BlackMarket = workspace:FindFirstChild("Stalls"):FindFirstChild("Black Market"):GetDescendants()
+	for i,v in pairs(BlackMarket) do
+	if v.Name == "Grani" and v.Parent.Parent.Name == "Grani" then
+		local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+			HRP.CFrame = v.CFrame
+		end
+	end
 end)
 
 
@@ -150,12 +173,12 @@ DSection:NewKeybind("Toggle UI Button", "Toggle UI Button", Enum.KeyCode.LeftCon
 end)
 
 DSection:NewButton("Open all Chests", "Opens all the chests", function()
-    local Chests = workspace:FindFirstChild("Chests"):GetDescendants()
+local Chests = workspace:FindFirstChild("Chests"):GetDescendants()
 local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-for i,v in pairs (Chests) do
-if v.Name == "TouchInterest" and v.Parent.Name == "Giver" and v.Parent.Parent.Parent.Name == "Chests" and v.Parent.Parent.Parent:IsA("Folder") then
-firetouchinterest(HRP,v.Parent,0)
-firetouchinterest(HRP,v.Parent,1)
-end
-end
+	for i,v in pairs (Chests) do
+		if v.Name == "TouchInterest" and v.Parent.Name == "Giver" and v.Parent.Parent.Parent.Name == "Chests" and v.Parent.Parent.Parent:IsA("Folder") then
+			firetouchinterest(HRP,v.Parent,0)
+			firetouchinterest(HRP,v.Parent,1)
+		end
+	end
 end)
